@@ -10,13 +10,13 @@ class ServiceProviderTest extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * Test that config does publish
+     * Test that config does publish.
      */
     public function testConfigPublishes()
     {
         $this->artisan('vendor:publish', [
             '--provider' => 'KubqoA\IssueTracker\IssueTrackerServiceProvider',
-            '--tag' => 'config'
+            '--tag' => 'config',
         ]);
         $this->assertFileExists(config_path('issue_tracker.php'));
     }

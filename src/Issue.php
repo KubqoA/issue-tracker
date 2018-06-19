@@ -45,9 +45,9 @@ class Issue
      *
      * @return Issue
      */
-    public static function create($title, $body): Issue
+    public static function create($title, $body): self
     {
-        return new Issue($title, $body);
+        return new self($title, $body);
     }
 
     /**
@@ -55,14 +55,14 @@ class Issue
      *
      * @return Issue
      */
-    public function setClosed($closed): Issue
+    public function setClosed($closed): self
     {
         $this->closed = $closed;
 
         return $this;
     }
 
-    public function toggleClosed(): Issue
+    public function toggleClosed(): self
     {
         return $this->setClosed(! $this->closed);
     }
