@@ -8,13 +8,15 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
+##Work in progress, package not functional yet! Stay tuned in for updates
+
 Easily create and publish issues from your Laravel app to your git repository hosted on supported platform. Provides an easy integration with issue trackers in Gitea, Gogs and Github.
 Users can easily submit issues yo your issue tracker easily from within your app, and you can manage it inside your issue tracker.
 
 ## Requirements
 
-- PHP 7.1+
-- Laravel 5.6+
+- PHP 7.0+
+- Laravel 5.5+
 
 ## Install
 
