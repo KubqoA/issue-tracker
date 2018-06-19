@@ -8,9 +8,10 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false">
+         stopOnFailure="false"
+         printerClass="Codedungeon\PHPUnitPrettyResultPrinter\Printer">
     <testsuites>
-        <testsuite name="KubqoA Test Suite">
+        <testsuite name="Issue Tracker Tests">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

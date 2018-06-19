@@ -7,31 +7,21 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```Jakub Arbet``` ```KubqoA``` ```https://github.com/KubqoA``` ```arbetjakub@gmail.com``` ```KubqoA``` ```issuetracker``` ```Easily create and publish issues from your Laravel app to your git repository hosted on supported platform``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
-```
-bin/        
-config/
-src/
-tests/
-vendor/
-```
-
+Easily create and publish issues from your Laravel app to your git repository hosted on supported platform. Provides an easy integration with issue trackers in Gitea, Gogs and Github.
+Users can easily submit issues yo your issue tracker easily from within your app, and you can manage it inside your issue tracker.
 
 ## Install
 
-Via Composer
-
+Package can be installed using composer
 ``` bash
 $ composer require KubqoA/issuetracker
 ```
+You don't need to register any service providers, the package uses Laravel's auto-discovery feature
+
+After installation is finished publish the config and modify it to match your environment
+````
+php artisan vendor:publish --provider="KubqoA\IssueTracker\IssueTrackerServiceProvider" --tag=config
+````
 
 ## Usage
 
