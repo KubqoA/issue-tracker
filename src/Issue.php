@@ -51,6 +51,8 @@ class Issue
     }
 
     /**
+     * Sets the closed attribute of the issue
+     *
      * @param bool $closed
      *
      * @return Issue
@@ -62,6 +64,11 @@ class Issue
         return $this;
     }
 
+    /**
+     * Toggles the closed attribute of the issue
+     *
+     * @return Issue
+     */
     public function toggleClosed(): self
     {
         return $this->setClosed(! $this->closed);

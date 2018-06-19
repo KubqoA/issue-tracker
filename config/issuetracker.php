@@ -28,10 +28,12 @@ return [
      */
 
     'api' => [
-        'url' => 'https://try.gitea.io/',
-        'owner_name' => 'owner',
-        'repository_name' => 'example',
-        'access_token' => env('ISSUE_TRACKER_ACCESS_TOKEN'),
+        'gitea' => [
+            'url' => 'https://try.gitea.io/',
+            'owner_name' => 'owner',
+            'repository_name' => 'example',
+            'access_token' => env('ISSUE_TRACKER_ACCESS_TOKEN'),
+        ],
     ],
 
 ];

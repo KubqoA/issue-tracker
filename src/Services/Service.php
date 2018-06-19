@@ -6,6 +6,13 @@ use KubqoA\IssueTracker\Issue;
 
 interface Service
 {
+    /**
+     * Get an instance of this service
+     *
+     * @return Service
+     */
+    public static function getInstance();
+
     /*
      * Get all issues for the repository
      *

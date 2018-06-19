@@ -4,8 +4,7 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
+[![Coverage Status][ico-codecov]][link-codecov]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 ## Work in progress, package not functional yet! Stay tuned in for updates
@@ -69,15 +68,13 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/KubqoA/issuetracker/master.svg?style=flat-square
 [ico-styleci]: https://github.styleci.io/repos/137647384/shield?branch=master
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/KubqoA/issuetracker.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/KubqoA/issuetracker.svg?style=flat-square
+[ico-codecov]: https://img.shields.io/codecov/c/github/KubqoA/issuetracker.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/KubqoA/issuetracker.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/KubqoA/issuetracker
 [link-travis]: https://travis-ci.org/KubqoA/issuetracker
 [link-styleci]: https://github.styleci.io/repos/137647384
-[link-scrutinizer]: https://scrutinizer-ci.com/g/KubqoA/issuetracker/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/KubqoA/issuetracker
+[link-codecov]: https://codecov.io/gh/KubqoA/issuetracker
 [link-downloads]: https://packagist.org/packages/KubqoA/issuetracker
 [link-author]: https://github.com/KubqoA
 [link-contributors]: ../../contributors

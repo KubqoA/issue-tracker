@@ -18,6 +18,6 @@ class ServiceProviderTest extends \Orchestra\Testbench\TestCase
             '--provider' => 'KubqoA\IssueTracker\IssueTrackerServiceProvider',
             '--tag' => 'config',
         ]);
-        $this->assertFileExists(config_path('issue_tracker.php'));
+        $this->assertFileExists(config_path('issuetracker.php'));
     }
 }

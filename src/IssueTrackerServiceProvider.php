@@ -11,14 +11,7 @@ class IssueTrackerServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $packageConfigPath = __DIR__.'/../config/issue_tracker.php';
-
-    /**
-     * The default config key used for publishing and merging.
-     *
-     * @var string
-     */
-    protected $configKey = 'issue_tracker';
+    protected $packageConfigPath = __DIR__.'/../config/issuetracker.php';
 
     /**
      * Bootstrap the application services.
@@ -33,7 +26,7 @@ class IssueTrackerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom($this->packageConfigPath, $this->configKey);
+        $this->mergeConfigFrom($this->packageConfigPath, 'issuetracker');
     }
 
     /**
@@ -42,7 +35,7 @@ class IssueTrackerServiceProvider extends ServiceProvider
     private function publishConfig()
     {
         $this->publishes([
-            $this->packageConfigPath => config_path($this->configKey.'.php'),
+            $this->packageConfigPath => config_path('issuetracker.php'),
         ], 'config');
     }
 }

@@ -25,4 +25,7 @@
         <log type="coverage-text" target="build/coverage.txt"/>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
+    <php>
+        <env name="ISSUE_TRACKER_ACCESS_TOKEN" value="this-is-an-access-token"/>
+    </php>
 </phpunit>
