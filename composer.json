@@ -16,8 +16,8 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.10",
         "mockery/mockery": "dev-master",
-        "orchestra/testbench": "^3.6",
-        "phpunit/phpunit": "^7.0"
+        "orchestra/testbench": "^3.5",
+        "phpunit/phpunit": "^6.0"
     },
     "autoload": {
         "psr-4": {
@@ -31,6 +31,7 @@
     },
     "scripts": {
         "test": "phpunit",
+        "test:ci": "composer test --verbose --coverage-text --coverage-clover=coverage.xml",
         "styles": "php-cs-fixer fix --config=.php_cs.dist -v --using-cache=no src"
     },
     "config": {
