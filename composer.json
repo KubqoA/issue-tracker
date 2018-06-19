@@ -11,13 +11,13 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "illuminate/support": "~5.5.0"
+        "illuminate/support": "^5.5"
     },
     "require-dev": {
-        "mockery/mockery": "^1.1",
-        "phpunit/phpunit": "~6.0",
-        "squizlabs/php_codesniffer": "^2.3",
-        "orchestra/testbench" : "~3.5"
+        "friendsofphp/php-cs-fixer": "^2.10",
+        "mockery/mockery": "dev-master",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -31,8 +31,7 @@
     },
     "scripts": {
         "test": "phpunit",
-        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
-        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+        "styles": "php-cs-fixer fix --config=.php_cs.dist -v --using-cache=no src"
     },
     "config": {
         "sort-packages": true

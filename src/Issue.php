@@ -19,7 +19,7 @@ class Issue
     public $body;
 
     /**
-     * Indicates whether the issue is closed
+     * Indicates whether the issue is closed.
      *
      * @var bool
      */
@@ -28,51 +28,52 @@ class Issue
     /**
      * Issue constructor.
      *
-     * @param  string  $title
-     * @param  string  $body
+     * @param string $title
+     * @param string $body
      */
     public function __construct($title, $body)
     {
-        $this->title=$title;
-        $this->body=$body;
+        $this->title = $title;
+        $this->body = $body;
     }
 
     /**
-     * Static method to create a new issue from title and body
+     * Static method to create a new issue from title and body.
      *
-     * @param  string  $title
-     * @param  string  $body
+     * @param string $title
+     * @param string $body
+     *
      * @return Issue
      */
-    public static function create($title, $body) : Issue
+    public static function create($title, $body): Issue
     {
         return new Issue($title, $body);
     }
 
     /**
+     * @param bool $closed
      *
-     *
-     * @param  bool  $closed
      * @return Issue
      */
-    public function setClosed($closed) : Issue
+    public function setClosed($closed): Issue
     {
-        $this->closed=$closed;
+        $this->closed = $closed;
+
         return $this;
     }
 
-    public function toggleClosed() : Issue
+    public function toggleClosed(): Issue
     {
-        return $this->setClosed(!$this->closed);
+        return $this->setClosed(! $this->closed);
     }
 
-    public function save() : bool
+    public function save(): bool
     {
         //TODO: implement save method
         return false;
     }
 
-    public function update() : bool
+    public function update(): bool
     {
         //TODO: implement update method
         return false;

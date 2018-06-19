@@ -11,29 +11,32 @@ interface Service
      *
      * @return  Issue[]
      */
-    public function getIssues() : array;
+    public function getIssues(): array;
 
     /**
-     * Creates a new issue
+     * Creates a new issue.
      *
-     * @param  Issue  $issue
+     * @param Issue $issue
+     *
      * @return Issue
      */
-    public function createIssue(Issue $issue) : Issue;
+    public function createIssue(Issue $issue): Issue;
 
     /**
-     * Gets an issue with the specified id
+     * Gets an issue with the specified id.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return Issue
      */
-    public function getIssue(int $id) : Issue;
+    public function getIssue(int $id): Issue;
 
     /**
-     * Deletes an issue with the specified id
+     * Deletes an issue with the specified id.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return bool
      */
-    public function deleteIssue(int $id) : bool;
+    public function deleteIssue(int $id): bool;
 }
