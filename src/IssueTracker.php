@@ -14,20 +14,32 @@ class IssueTracker
 
     public function __construct()
     {
-        $this->service = call_user_func(array($this->getServiceClass(), "getInstance"));
+        $this->service = $this->getServiceInstance();
     }
 
-    public function getServiceClass() : string
+    /**
+     * Gets class name of hosting service specified in config.
+     *
+     * @return string
+     */
+    private function getServiceClassName(): string
     {
-        $serviceClassName=$this->getServiceClassName();
-        if (class_exists($serviceClassName)) {
-            return $serviceClassName;
+        return '\\KubqoA\\IssueTracker\\Services\\'.ucfirst(config('issuetracker.hosting_service'));
+    }
+
+    /**
+     * Uses getServiceClassName() to obtain class name and tries to create a new service instance.
+     * If the class given by getServiceClassName() does not exist it throws InvalidHostingServiceNameException.
+     *
+     * @throws InvalidHostingServiceNameException
+     * @return Service
+     */
+    private function getServiceInstance(): Service
+    {
+        try {
+            return call_user_func([$this->getServiceClassName(), 'getInstance']);
+        } catch (\Exception $exception) {
+            throw new InvalidHostingServiceNameException();
         }
-        throw new InvalidHostingServiceNameException();
-    }
-
-    public function getServiceClassName() : string
-    {
-        return '\\KubqoA\\IssueTracker\\Services\\' . ucfirst(config('issuetracker.hosting_service'));
     }
 }

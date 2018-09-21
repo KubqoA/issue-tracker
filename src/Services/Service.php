@@ -7,14 +7,14 @@ use KubqoA\IssueTracker\Issue;
 interface Service
 {
     /**
-     * Get an instance of this service
+     * Get an instance of this service.
      *
      * @return Service
      */
     public static function getInstance();
 
-    /*
-     * Get all issues for the repository
+    /**
+     * Get all issues for the repository.
      *
      * @return  Issue[]
      */
@@ -37,13 +37,4 @@ interface Service
      * @return Issue
      */
     public function getIssue(int $id): Issue;
-
-    /**
-     * Deletes an issue with the specified id.
-     *
-     * @param int $id
-     *
-     * @return bool
-     */
-    public function deleteIssue(int $id): bool;
 }

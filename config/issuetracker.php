@@ -29,9 +29,9 @@ return [
 
     'api' => [
         'gitea' => [
-            'url' => 'https://try.gitea.io/',
-            'owner_name' => 'owner',
-            'repository_name' => 'example',
+            'url' => env('ISSUE_TRACKER_URL', 'https://try.gitea.io'),
+            'owner_name' => env('ISSUE_TRACKER_OWNER_NAME'),
+            'repository_name' => env('ISSUE_TRACKER_REPOSITORY_NAME'),
             'access_token' => env('ISSUE_TRACKER_ACCESS_TOKEN'),
         ],
     ],

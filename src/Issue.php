@@ -4,14 +4,14 @@ namespace KubqoA\IssueTracker;
 
 class Issue
 {
-    /*
+    /**
      * Title of the issue
      *
      * @var string
      */
     public $title;
 
-    /*
+    /**
      * Body of the issue
      *
      * @var string
@@ -51,7 +51,7 @@ class Issue
     }
 
     /**
-     * Sets the closed attribute of the issue
+     * Sets the closed attribute of the issue.
      *
      * @param bool $closed
      *
@@ -65,7 +65,7 @@ class Issue
     }
 
     /**
-     * Toggles the closed attribute of the issue
+     * Toggles the closed attribute of the issue.
      *
      * @return Issue
      */
