@@ -1,4 +1,6 @@
 build
+cache
 composer.lock
 vendor
 .idea
+sami.*
