@@ -20,9 +20,18 @@ class GiteaServiceTest extends \Orchestra\Testbench\TestCase
         );
     }
 
-    public function testGettingIssuesFromGitea()
+    public function testRequestToGitea()
     {
         $gitea = Gitea::getInstance();
-        $gitea->getIssues();
+        $response = $gitea->request('GET', $gitea->GET_ISSUES_URL);
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+                    
+    public function testGetIssuesFromGitea()
+    {
+        $gitea = Gitea::getInstance();
+        $issues = $gitea->getIssues();
+        if (empty($issues)) $this->assertTrue(empty($issues));
+        else $this->assertInstanceOf(Issue::class, $issues[0]);
     }
 }
