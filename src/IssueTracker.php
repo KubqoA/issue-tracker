@@ -2,8 +2,8 @@
 
 namespace KubqoA\IssueTracker;
 
-use KubqoA\IssueTracker\Exceptions\InvalidHostingServiceNameException;
 use KubqoA\IssueTracker\Services\Service;
+use KubqoA\IssueTracker\Exceptions\InvalidHostingServiceNameException;
 
 class IssueTracker
 {
@@ -32,6 +32,7 @@ class IssueTracker
      * If the class given by getServiceClassName() does not exist it throws InvalidHostingServiceNameException.
      *
      * @throws InvalidHostingServiceNameException
+     *
      * @return Service
      */
     private function getServiceInstance(): Service

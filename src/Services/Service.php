@@ -2,8 +2,8 @@
 
 namespace KubqoA\IssueTracker\Services;
 
-use KubqoA\IssueTracker\Issue;
 use KubqoA\IssueTracker\User;
+use KubqoA\IssueTracker\Issue;
 
 interface Service
 {
@@ -40,17 +40,19 @@ interface Service
     public function getIssue(int $id): Issue;
 
     /**
-     * Parses the response data for an issue from the server
+     * Parses the response data for an issue from the server.
      *
      * @param  $data
+     *
      * @return Issue
      */
     public function createIssueFromResponseData($data): Issue;
 
     /**
-     * Parses the response data for a user from the server
+     * Parses the response data for a user from the server.
      *
      * @param  $data
+     *
      * @return User
      */
     public function createUserFromResponseData($data): User;
