@@ -4,15 +4,13 @@ namespace KubqoA\IssueTracker\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use KubqoA\IssueTracker\User;
 use Illuminate\Support\Carbon;
 use KubqoA\IssueTracker\Issue;
-use KubqoA\IssueTracker\User;
 
 /**
  * Gitea API integration for version 1.1.1
- * Documentation for Gitea API can be found at your-gitea-url/api/swagger
- *
- * @package KubqoA\IssueTracker\Services
+ * Documentation for Gitea API can be found at your-gitea-url/api/swagger.
  */
 class Gitea implements Service
 {
@@ -85,9 +83,9 @@ class Gitea implements Service
         $this->ownerName = config('issuetracker.api.gitea.owner_name');
         $this->repositoryName = config('issuetracker.api.gitea.repository_name');
         $this->accessToken = config('issuetracker.api.gitea.access_token');
-        $this->GET_ISSUES_URL = $this->url . '/api/v1/repos/' . $this->ownerName . '/' . $this->repositoryName . '/issues';
-        $this->CREATE_ISSUE_URL = $this->url . '/api/v1/repos/' . $this->ownerName . '/' . $this->repositoryName . '/issues';
-        $this->GET_ISSUE_URL = $this->url . '/api/v1/repos/' . $this->ownerName . '/' . $this->repositoryName . '/issues/{id}';
+        $this->GET_ISSUES_URL = $this->url.'/api/v1/repos/'.$this->ownerName.'/'.$this->repositoryName.'/issues';
+        $this->CREATE_ISSUE_URL = $this->url.'/api/v1/repos/'.$this->ownerName.'/'.$this->repositoryName.'/issues';
+        $this->GET_ISSUE_URL = $this->url.'/api/v1/repos/'.$this->ownerName.'/'.$this->repositoryName.'/issues/{id}';
         $this->client = $client;
     }
 
@@ -105,19 +103,22 @@ class Gitea implements Service
      * @param $method
      * @param string $uri
      * @param array $options
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function request($method, $uri = '', $options = ['accept' => 'application/json']): Response
     {
-        return $this->client->request($method, $uri . '?access_token=' . env('ISSUE_TRACKER_ACCESS_TOKEN'), $options);
+        return $this->client->request($method, $uri.'?access_token='.env('ISSUE_TRACKER_ACCESS_TOKEN'), $options);
     }
 
     /**
      * Get all issues for the repository.
      *
-     * @return  Issue[]
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return  Issue[]
      */
     public function getIssues(): array
     {
@@ -127,6 +128,7 @@ class Gitea implements Service
         foreach ($issuesData as $issueData) {
             $issues[] = $this->createIssueFromResponseData($issueData);
         }
+
         return $issues;
     }
 
@@ -155,9 +157,10 @@ class Gitea implements Service
     }
 
     /**
-     * Parses the response data for an issue from the server
+     * Parses the response data for an issue from the server.
      *
      * @param  $data
+     *
      * @return Issue
      */
     public function createIssueFromResponseData($data): Issue
@@ -176,9 +179,10 @@ class Gitea implements Service
     }
 
     /**
-     * Parses the response data for a user from the server
+     * Parses the response data for a user from the server.
      *
      * @param  $data
+     *
      * @return User
      */
     public function createUserFromResponseData($data): User

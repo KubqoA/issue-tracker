@@ -96,7 +96,7 @@ class Issue
     }
 
     /**
-     * Static method to create a new issue
+     * Static method to create a new issue.
      *
      * @param  string  $url
      * @param  int  $number
@@ -107,6 +107,7 @@ class Issue
      * @param  Carbon  $created_at
      * @param  Carbon  $updated_at
      * @param  Carbon|null  $closed_at
+     *
      * @return Issue
      */
     public static function create(string $url, int $number, User $user, string $title, string $body, string $state, Carbon $created_at, Carbon $updated_at, $closed_at): self

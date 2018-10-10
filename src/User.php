@@ -55,6 +55,7 @@ class User
      * @param  string  $username
      * @param  string  $full_name
      * @param  string  $avatar_url
+     *
      * @return User
      */
     public static function create(string $email, string $username, string $full_name, string $avatar_url): self
