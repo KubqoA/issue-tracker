@@ -3,8 +3,9 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
+[![Quality Score][ico-code-quality]][link-code-quality]
+[![Code Coverage][ico-code-coverage]][link-code-coverage]
 [![StyleCI][ico-styleci]][link-styleci]
-[![Coverage Status][ico-codecov]][link-codecov]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 ## Work in progress, package not functional yet! Stay tuned in for updates
@@ -14,8 +15,8 @@ Users can easily submit issues yo your issue tracker easily from within your app
 
 ## Requirements
 
-- PHP 7.0+
-- Laravel 5.5+
+- PHP 7.3+
+- Laravel 5.8+
 
 ## Install
 
@@ -26,7 +27,7 @@ $ composer require KubqoA/issuetracker
 You don't need to register any service providers, the package uses Laravel's auto-discovery feature
 
 After installation is finished publish the config and modify it to match your environment
-````
+````bash
 php artisan vendor:publish --provider="KubqoA\IssueTracker\IssueTrackerServiceProvider" --tag=config
 ````
 
@@ -58,7 +59,6 @@ If you discover any security related issues, please email arbetjakub@gmail.com i
 ## Credits
 
 - [Jakub Arbet][link-author]
-- [All Contributors][link-contributors]
 
 ## License
 
@@ -67,14 +67,15 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-version]: https://img.shields.io/packagist/v/KubqoA/issuetracker.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/KubqoA/issuetracker/master.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/KubqoA/issuetracker.svg?style=flat-square
+[ico-code-coverage]: https://img.shields.io/scrutinizer/coverage/g/KubqoA/issuetracker.svg?style=flat-square
 [ico-styleci]: https://github.styleci.io/repos/137647384/shield?branch=master
-[ico-codecov]: https://img.shields.io/codecov/c/github/KubqoA/issuetracker.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/KubqoA/issuetracker.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/KubqoA/issuetracker
 [link-travis]: https://travis-ci.org/KubqoA/issuetracker
+[link-code-quality]: https://scrutinizer-ci.com/g/KubqoA/issuetracker
+[link-code-coverage]: https://scrutinizer-ci.com/g/KubqoA/issuetracker/code-structure
 [link-styleci]: https://github.styleci.io/repos/137647384
-[link-codecov]: https://codecov.io/gh/KubqoA/issuetracker
 [link-downloads]: https://packagist.org/packages/KubqoA/issuetracker
 [link-author]: https://github.com/KubqoA
-[link-contributors]: ../../contributors

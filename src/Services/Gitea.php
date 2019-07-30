@@ -100,6 +100,8 @@ class Gitea implements Service
     }
 
     /**
+     * Make a request to the service
+     *
      * @param $method
      * @param string $uri
      * @param array $options
@@ -114,6 +116,21 @@ class Gitea implements Service
     }
 
     /**
+     * Creates a new issue.
+     *
+     * @param Issue $issue
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return Issue
+     */
+    public function createIssue(Issue $issue): Issue
+    {
+        $issueData = $this->createIssueDataFromIssueModel($issue);
+        $response = $this->request('POST', $issueData);
+    }
+
+    /**
      * Get all issues for the repository.
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -124,24 +141,13 @@ class Gitea implements Service
     {
         $response = $this->request('GET', $this->GET_ISSUES_URL);
         $issuesData = json_decode($response->getBody()->getContents());
+
         $issues = [];
         foreach ($issuesData as $issueData) {
             $issues[] = $this->createIssueFromResponseData($issueData);
         }
 
         return $issues;
-    }
-
-    /**
-     * Creates a new issue.
-     *
-     * @param Issue $issue
-     *
-     * @return Issue
-     */
-    public function createIssue(Issue $issue): Issue
-    {
-        // TODO: Implement createIssue() method.
     }
 
     /**
@@ -157,7 +163,7 @@ class Gitea implements Service
     }
 
     /**
-     * Parses the response data for an issue from the server.
+     * Parses the response data (json) for an issue from the server.
      *
      * @param  $data
      *
@@ -179,7 +185,7 @@ class Gitea implements Service
     }
 
     /**
-     * Parses the response data for a user from the server.
+     * Parses the response data (json) for a user from the server.
      *
      * @param  $data
      *
@@ -193,5 +199,32 @@ class Gitea implements Service
             $data->full_name,
             $data->avatar_url
         );
+    }
+
+    /**
+     * Creates an issue data string (json) from Issue model which can be sent to the service.
+     *
+     * @param  Issue $issue
+     *
+     * @return string
+     */
+    public function createIssueDataFromIssueModel(Issue $issue): string
+    {
+        return json_encode([
+            'title' => $issue->title,
+            'body' => $issue->body,
+        ]);
+    }
+
+    /**
+     * Creates an issue data string (json) from Issue model which can be sent to the service.
+     *
+     * @param  User $user
+     *
+     * @return string
+     */
+    public function createUserDataFromUserModel(User $user): string
+    {
+        // TODO: Implement createUserDataFromUserModel() method.
     }
 }

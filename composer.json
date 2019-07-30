@@ -1,40 +1,44 @@
 {
     "name": "kubqoa/issuetracker",
     "description": "Easily create and publish issues from your Laravel app to your git repository hosted on supported platform",
+    "homepage": "https://github.com/kubqoa/issuetracker",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Jakub Arbet",
-            "email": "arbetjakub@gmail.com"
+            "email": "jakub.arbet@protonmail.com",
+            "homepage": "https://jakubarbet.me",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.0.0",
-        "illuminate/support": "^5.5",
+        "php": "^7.2",
+        "illuminate/support": "^5.8",
         "ext-json": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.10",
-        "mockery/mockery": "dev-master",
-        "orchestra/testbench": "^3.5",
-        "phpunit/phpunit": "^6.0",
-        "guzzlehttp/guzzle": "^6.3"
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "guzzlehttp/guzzle": "^6.3",
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "~3.8.0",
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
-            "KubqoA\\IssueTracker\\": "src/"
+            "KubqoA\\IssueTracker\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "KubqoA\\IssueTracker\\": "src/"
+            "KubqoA\\IssueTracker\\Tests\\": "tests"
         }
     },
     "scripts": {
-        "test": "phpunit",
-        "test:ci": "composer test -- --verbose --coverage-text --coverage-clover=coverage.xml",
-        "styles": "php-cs-fixer fix --config=.php_cs.dist -v --using-cache=no src"
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit  --coverage-html coverage",
+        "test-ci-coverage": "vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover",
+        "format": "vendor/bin/php-cs-fixer fix -v --using-cache=no src"
     },
     "config": {
         "sort-packages": true
@@ -43,7 +47,7 @@
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "0.1-dev"
         },
         "laravel": {
             "providers": [

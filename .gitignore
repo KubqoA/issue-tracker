@@ -1,6 +1,6 @@
 build
-cache
 composer.lock
+docs
 vendor
+coverage
 .idea
-sami.*

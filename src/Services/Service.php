@@ -2,6 +2,7 @@
 
 namespace KubqoA\IssueTracker\Services;
 
+use GuzzleHttp\Psr7\Response;
 use KubqoA\IssueTracker\User;
 use KubqoA\IssueTracker\Issue;
 
@@ -13,6 +14,19 @@ interface Service
      * @return Service
      */
     public static function getInstance();
+
+    /**
+     * Make a request to the service
+     *
+     * @param $method
+     * @param string $uri
+     * @param array $options
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     */
+    public function request($method, $uri, $options): Response;
 
     /**
      * Get all issues for the repository.
@@ -40,7 +54,7 @@ interface Service
     public function getIssue(int $id): Issue;
 
     /**
-     * Parses the response data for an issue from the server.
+     * Parses the response data (json) for an issue from the server.
      *
      * @param  $data
      *
@@ -49,11 +63,29 @@ interface Service
     public function createIssueFromResponseData($data): Issue;
 
     /**
-     * Parses the response data for a user from the server.
+     * Parses the response data (json) for a user from the server.
      *
      * @param  $data
      *
      * @return User
      */
     public function createUserFromResponseData($data): User;
+
+    /**
+     * Creates an issue data string (json) from Issue model which can be sent to the service.
+     *
+     * @param  Issue  $issue
+     *
+     * @return string
+     */
+    public function createIssueDataFromIssueModel(Issue $issue): string;
+
+    /**
+     * Creates an issue data string (json) from Issue model which can be sent to the service.
+     *
+     * @param  User  $user
+     *
+     * @return string
+     */
+    public function createUserDataFromUserModel(User $user): string;
 }

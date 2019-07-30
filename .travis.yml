@@ -11,22 +11,34 @@ env:
     - COVERAGE=0
 
 matrix:
+  fast_finish: true
   include:
-    - php: 7.0
-    - php: 7.1
-    - php: 7.2
-      env: COVERAGE=1
-fast_finish: true
+    - php: '7.2'
+      env: LARAVEL='5.8.*' TESTBENCH='3.8.*' COMPOSER_FLAGS='--prefer-lowest' COVERAGE=0
+    - php: '7.2'
+      env: LARAVEL='5.8.*' TESTBENCH='3.8.*' COMPOSER_FLAGS='--prefer-stable' COVERAGE=0
+    - php: '7.3'
+      env: LARAVEL='5.8.*' TESTBENCH='3.8.*' COMPOSER_FLAGS='--prefer-lowest' COVERAGE=0
+    - php: '7.3'
+      env: LARAVEL='5.8.*' TESTBENCH='3.8.*' COMPOSER_FLAGS='--prefer-stable' COVERAGE=1
 
 before_install:
-  - if [[ $COVERAGE = 0 ]]; then phpenv config-rm xdebug.ini; fi
+  - if [ $COVERAGE = 0 ]; then phpenv config-rm xdebug.ini; fi
   - travis_retry composer self-update
+  - travis_retry composer require --no-update --no-interaction "illuminate/support:${LARAVEL}" "orchestra/testbench:${TESTBENCH}"
 
 install:
-  - travis_retry composer install --prefer-dist --no-interaction --no-suggest
+  - travis_retry composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction --no-suggest
 
 script:
-  - composer run test:ci
+  - if [ $COVERAGE = 1 ]; then
+      composer test-ci-coverage
+    else
+      composer test
+    fi
 
 after_script:
-  - if [[ $COVERAGE = 1 ]]; then bash <(curl -s https://codecov.io/bash); fi
+  - if [ $COVERAGE = 1 ]; then
+      wget https://scrutinizer-ci.com/ocular.phar
+      php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+    fi
