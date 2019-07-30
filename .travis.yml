@@ -23,7 +23,6 @@ matrix:
       env: LARAVEL='5.8.*' TESTBENCH='3.8.*' COMPOSER_FLAGS='--prefer-stable' COVERAGE=1
 
 before_install:
-  - if [ $COVERAGE = 0 ]; then phpenv config-rm xdebug.ini; fi
   - travis_retry composer self-update
   - travis_retry composer require --no-update --no-interaction "illuminate/support:${LARAVEL}" "orchestra/testbench:${TESTBENCH}"
 
@@ -31,11 +30,7 @@ install:
   - travis_retry composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction --no-suggest
 
 script:
-  - if [ $COVERAGE = 1 ]; then
-      composer test-ci-coverage
-    else
-      composer test
-    fi
+  - composer test-ci
 
 after_script:
   - if [ $COVERAGE = 1 ]; then
